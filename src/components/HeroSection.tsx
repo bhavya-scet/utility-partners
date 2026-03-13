@@ -8,8 +8,8 @@ import Scroll3D from './Scroll3D';
 export default function HeroSection() {
   const ref = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
-  const desktopVideoPath = '/hero.mov';
-  const mobileVideoPath = '/hero.mov';
+  const desktopVideoPath = '/hero.mkv';
+  const mobileVideoPath = '/hero.mkv';
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"]
