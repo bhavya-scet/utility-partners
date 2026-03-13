@@ -2,12 +2,16 @@ import { motion } from 'motion/react';
 import { useState } from 'react';
 import { Building2, Plane, UserCheck, Globe2 } from 'lucide-react';
 import Scroll3D from './Scroll3D';
+import businessSetupBg from '../../Luxury_investment_concept_showing_golden_globe_pas_delpmaspu.png';
+import immigrationBg from '../../Closeup_of_passport_visa_stamps_official_documents_delpmaspu.png';
+import conciergeBg from '../../Promptluxury_concierge_concept_with_elegant_hotel__delpmaspu.png';
+import citizenshipBg from '../../Modern_corporate_office_desk_setup_with_laptop_bus_delpmaspu.png';
 
 const services = [
-  { name: "Business Setup", description: "Streamlined support for establishing your business in the UAE.", icon: Building2, color: "from-brand-blue to-brand-gray" },
-  { name: "Immigration Services", description: "Expert guidance for all your visa and immigration needs.", icon: Plane, color: "from-brand-charcoal to-brand-gray" },
-  { name: "Concierge Services", description: "Personalized assistance to enhance your business experience.", icon: UserCheck, color: "from-brand-blue to-brand-gray" },
-  { name: "Citizenship by Investment", description: "Achieve global mobility through strategic investments.", icon: Globe2, color: "from-brand-gray to-brand-charcoal" },
+  { name: "Business Setup", description: "Streamlined support for establishing your business in the UAE.", icon: Building2, color: "from-brand-blue to-brand-gray", background: businessSetupBg },
+  { name: "Immigration Services", description: "Expert guidance for all your visa and immigration needs.", icon: Plane, color: "from-brand-charcoal to-brand-gray", background: immigrationBg },
+  { name: "Concierge Services", description: "Personalized assistance to enhance your business experience.", icon: UserCheck, color: "from-brand-blue to-brand-gray", background: conciergeBg },
+  { name: "Citizenship by Investment", description: "Achieve global mobility through strategic investments.", icon: Globe2, color: "from-brand-gray to-brand-charcoal", background: citizenshipBg },
 ];
 
 export default function BrandApplicationsSection() {
@@ -36,9 +40,19 @@ export default function BrandApplicationsSection() {
               onHoverStart={() => setHoveredIndex(index)}
               onHoverEnd={() => setHoveredIndex(null)}
             >
-              {/* Hover Preview Background */}
+              {/* Background image */}
+              <motion.div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: `url(${service.background})` }}
+                animate={{
+                  scale: hoveredIndex === index ? 1.05 : 1,
+                }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              />
+
+              {/* Hover gradient overlay */}
               <motion.div 
-                className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+                className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-40 group-hover:opacity-80 transition-opacity duration-500`}
                 animate={{
                   scale: hoveredIndex === index ? 1.1 : 1,
                   rotate: hoveredIndex === index ? 2 : 0,
