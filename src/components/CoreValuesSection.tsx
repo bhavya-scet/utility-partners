@@ -7,26 +7,31 @@ const values = [
     title: "Integrity",
     description: "We act with honesty and integrity in everything we do.",
     icon: ShieldCheck,
+    background: "/Elegant_minimal_corporate_concept_showing_two_meta_f9e5fd9465.jpeg",
   },
   {
     title: "Unity",
     description: "Fostering a culture of collaboration and teamwork.",
     icon: HeartHandshake,
+    background: "/Circle_of_interconnected_geometric_shapes_forming__a39070a8cc.jpeg",
   },
   {
     title: "Innovation",
     description: "We embrace creativity and strive for continuous improvement.",
     icon: Lightbulb,
+    background: "/Futuristic_light_bulb_digital_lines_a33a834b0a.jpeg",
   },
   {
     title: "Customer Focus",
     description: "Centricity on our clients, tailoring solutions to their unique needs.",
     icon: Users,
+    background: "/Target_symbol_with_digital_lines_9ffd2278a3.jpeg",
   },
   {
     title: "Excellence",
     description: "Delivering excellence and reliability in every service we provide.",
     icon: Award,
+    background: "/Golden_award_trophy_on_surface_4f4f86263c.jpeg",
   },
 ];
 
@@ -72,8 +77,14 @@ export default function CoreValuesSection() {
               className="glass-card fx-3d p-8 rounded-3xl flex flex-col items-start transition-colors duration-300 relative overflow-hidden group w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)]"
               delay={index * 0.08}
             >
-              {/* Hover Glow Effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              {/* Background image */}
+              <motion.div
+                className="absolute inset-0 bg-cover bg-center opacity-60 group-hover:opacity-90 transition-opacity duration-500"
+                style={{ backgroundImage: `url('${value.background}')` }}
+              />
+
+              {/* Hover Glow Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-transparent opacity-80 group-hover:from-black/70 group-hover:via-black/60 transition-colors duration-500" />
               
               <div className="relative z-10">
                 <motion.div 

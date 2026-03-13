@@ -22,9 +22,11 @@ export default function IslandNavbar() {
             href="#home"
             className="inline-flex items-center gap-2 text-sm md:text-base tracking-widest text-white font-bold shrink-0"
           >
-            <div className="w-8 h-8 rounded-full bg-brand-blue flex items-center justify-center border border-brand-gray/30">
-              <span className="text-white text-xs">UP</span>
-            </div>
+            <img
+              src="/logo.svg"
+              alt="Unity Partners logo"
+              className="w-8 h-8 rounded-xl border border-brand-gray/40 bg-black/40"
+            />
             UNITY PARTNERS
           </a>
 

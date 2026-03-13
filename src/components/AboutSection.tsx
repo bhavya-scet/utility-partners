@@ -66,45 +66,31 @@ export default function AboutSection() {
           </motion.p>
         </Scroll3D>
 
-        {/* Right Side: Interactive Visual Element */}
+        {/* Right Side: About visual card */}
         <Scroll3D className="relative h-[500px] w-full rounded-3xl overflow-hidden group cursor-pointer fx-3d" delay={0.15}>
-          {/* Abstract Illustration */}
-          <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/20 to-transparent z-10" />
-          
-          <motion.div 
-            className="absolute inset-0 bg-brand-blue/10 flex items-center justify-center"
-            whileHover={{ scale: 1.05, rotate: 2 }}
+          {/* Background image */}
+          <motion.div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: "url('/Ultrarealistic_architectural_photography_of_the_me_delpmaspu.png')" }}
+            whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-          >
-            {/* Morphing Shapes */}
-            <motion.div 
-              className="w-64 h-64 bg-brand-blue rounded-full mix-blend-screen filter blur-3xl opacity-50 absolute"
-              animate={{
-                scale: [1, 1.2, 1],
-                x: [0, 50, 0],
-                y: [0, -50, 0],
-              }}
-              transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-            />
-            <motion.div 
-              className="w-72 h-72 bg-brand-gray rounded-full mix-blend-overlay filter blur-3xl opacity-20 absolute"
-              animate={{
-                scale: [1.2, 1, 1.2],
-                x: [0, -50, 0],
-                y: [0, 50, 0],
-              }}
-              transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-            />
-            
-            {/* Central Element */}
-            <div className="relative z-20 w-32 h-32 glass fx-3d rounded-2xl flex items-center justify-center border border-brand-gray/20 shadow-2xl">
-              <motion.div 
-                className="w-16 h-16 border-4 border-brand-blue rounded-full border-t-transparent"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-              />
-            </div>
-          </motion.div>
+          />
+
+          {/* Gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent z-10 group-hover:from-black/80 group-hover:via-black/60 transition-colors duration-500" />
+
+          {/* Content overlay */}
+          <div className="relative z-20 h-full w-full flex flex-col justify-end p-10 space-y-4">
+            <p className="text-sm uppercase tracking-[0.2em] text-white/70">
+              Tailored business support
+            </p>
+            <h3 className="text-2xl md:text-3xl font-semibold text-white fx-text-depth">
+              Built for ambitious founders and professionals who want a seamless setup experience in the UAE.
+            </h3>
+            <p className="text-white/80 text-sm md:text-base max-w-md">
+              From licensing to compliance and concierge-level assistance, our team handles the complexities so you can stay focused on growth.
+            </p>
+          </div>
         </Scroll3D>
       </div>
     </section>

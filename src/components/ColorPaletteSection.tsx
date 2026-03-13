@@ -3,10 +3,26 @@ import { useState } from 'react';
 import Scroll3D from './Scroll3D';
 
 const countries = [
-  { name: "Dubai Mainland", desc: "A Dubai Mainland license allows entrepreneurs to operate their businesses both within the UAE and internationally.", bgClass: "bg-brand-blue" },
-  { name: "Abu Dhabi Mainland", desc: "Establish your presence in the capital with a wide range of business activities and opportunities.", bgClass: "bg-brand-charcoal" },
-  { name: "ADGM", desc: "Abu Dhabi Global Market is an award-winning international financial center.", bgClass: "bg-brand-gray" },
-  { name: "International", desc: "Expand your horizons globally with our international network and expertise.", bgClass: "bg-brand-blue" },
+  { 
+    name: "Dubai Mainland", 
+    desc: "A Dubai Mainland license allows entrepreneurs to operate their businesses both within the UAE and internationally.", 
+    background: "/dubai-main-land.jpeg" 
+  },
+  { 
+    name: "Abu Dhabi Mainland", 
+    desc: "Establish your presence in the capital with a wide range of business activities and opportunities.", 
+    background: "/abu-dhabi-main-land.jpeg" 
+  },
+  { 
+    name: "ADGM", 
+    desc: "Abu Dhabi Global Market is an award-winning international financial center.", 
+    background: "/adgm.jpeg" 
+  },
+  { 
+    name: "International", 
+    desc: "Expand your horizons globally with our international network and expertise.", 
+    background: "/international.jpeg" 
+  },
 ];
 
 export default function ColorPaletteSection() {
@@ -28,24 +44,25 @@ export default function ColorPaletteSection() {
           {countries.map((country, index) => (
             <Scroll3D
               key={index}
-              className={`fx-3d relative flex-1 rounded-2xl overflow-hidden cursor-pointer ${country.bgClass} flex flex-col justify-end p-6 border border-white/5 shadow-2xl`}
+              className="fx-3d relative flex-1 rounded-2xl overflow-hidden cursor-pointer flex flex-col justify-end p-6 border border-white/5 shadow-2xl"
               delay={index * 0.1}
               distance={80}
               onHoverStart={() => setHoveredIndex(index)}
               onHoverEnd={() => setHoveredIndex(null)}
             >
+              {/* Background image */}
               <motion.div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: `url('${country.background}')` }}
                 animate={{
-                  flex: hoveredIndex === index ? 2 : 1,
-                  boxShadow: hoveredIndex === index ? `0 0 40px rgba(255,255,255,0.1)` : "none",
+                  scale: hoveredIndex === index ? 1.05 : 1,
                 }}
-                style={{
-                  transition: "flex 0.5s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease",
-                }}
-                className="absolute inset-0 pointer-events-none"
+                transition={{ duration: 0.5, ease: "easeOut" }}
               />
+
+              {/* Dark overlay for readability */}
               <motion.div
-                className="absolute inset-0 bg-black/10 opacity-0 hover:opacity-100 transition-opacity duration-300"
+                className="absolute inset-0 bg-black/40 group-hover:bg-black/55 transition-colors duration-300"
               />
               
               <div className="relative z-10 p-2">
