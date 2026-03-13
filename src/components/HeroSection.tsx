@@ -2,14 +2,15 @@ import { motion, useScroll, useTransform } from 'motion/react';
 import { useEffect, useRef, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import heroVideo from '../../hero.mp4';
 import ScrambleText from './ScrambleText';
 import Scroll3D from './Scroll3D';
 
 export default function HeroSection() {
   const ref = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
-  const desktopVideoPath = '/hero.mp4';
-  const mobileVideoPath = '/hero.mp4';
+  const desktopVideoPath = heroVideo;
+  const mobileVideoPath = heroVideo;
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"]
